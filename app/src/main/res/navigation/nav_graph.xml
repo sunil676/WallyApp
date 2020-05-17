@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@+id/home_destination">
+
+    <fragment
+        android:id="@+id/home_destination"
+        android:name="com.sunil.walrustest.ui.MainFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_main" >
+
+        <!-- Go to Detail Fragment (Its graph is responsible to handle response) -->
+        <action android:id="@+id/action_mainFragment_to_DetailFragment"
+            app:destination="@id/nav_detail">
+            <argument android:name="content" app:argType="com.example.diagnaltestapp.data.ContentItems"/>
+        </action>
+    </fragment>
+
+    <include app:graph="@navigation/nav_detail"/>
+
+</navigation>
