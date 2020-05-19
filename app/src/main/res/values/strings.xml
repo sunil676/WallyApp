@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">WallyApp</string>
+    <string name="enter_phone">Enter mobile number</string>
+    <string name="error_phone">Pleasse enter valid phone number.</string>
+    <string name="otp_sent">OTP has been sent to you on your mobile phone. Please enter it below.</string>
+    <string name="verify">VERIFY</string>
 </resources>

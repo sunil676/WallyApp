@@ -1,14 +1,15 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.sunil.walrustest"
-        minSdkVersion 15
+        applicationId "com.sunil.wallyapp"
+        minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -20,6 +21,12 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'API_KEY', '"07c1N57iYmcIXVlhpvr1KsxuKE7aimcanuE8x6cXl8M"'
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'API_KEY', '"07c1N57iYmcIXVlhpvr1KsxuKE7aimcanuE8x6cXl8M"'
         }
     }
 
@@ -59,6 +66,9 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:2.2.2"
     // Paging
     implementation "androidx.paging:paging-runtime-ktx:2.1.2"
+    // firebase
+    implementation 'com.google.firebase:firebase-core:17.4.1'
+    implementation 'com.google.firebase:firebase-auth:19.3.1'
 
     // Testing
     testImplementation 'junit:junit:4.12'

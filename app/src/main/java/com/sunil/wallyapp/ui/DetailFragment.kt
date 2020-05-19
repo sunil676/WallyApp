@@ -1,4 +1,4 @@
-package com.sunil.walrustest.ui
+package com.sunil.wallyapp.ui
 
 import androidx.fragment.app.Fragment
 

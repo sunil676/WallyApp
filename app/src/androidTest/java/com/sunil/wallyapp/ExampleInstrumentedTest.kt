@@ -1,4 +1,4 @@
-package com.sunil.walrustest
+package com.sunil.wallyapp
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

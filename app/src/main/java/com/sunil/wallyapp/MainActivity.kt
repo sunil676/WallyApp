@@ -1,4 +1,4 @@
-package com.sunil.walrustest
+package com.sunil.wallyapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

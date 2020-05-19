@@ -8,11 +8,10 @@
     <!-- Detail Fragment -->
     <fragment
         android:id="@+id/DetailFragment"
-        android:name="com.sunil.walrustest.ui.DetailFragment"
+        android:name="com.sunil.wallyapp.ui.DetailFragment"
         android:label="movie's search"
         tools:layout="@layout/fragment_detail">
 
-        <argument android:name="content" app:argType="com.example.diagnaltestapp.data.ContentItems"/>
     </fragment>
 
 </navigation>
