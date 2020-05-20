@@ -2,15 +2,15 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_detail"
-    app:startDestination="@id/DetailFragment">
+    android:id="@+id/nav_profile"
+    app:startDestination="@id/ProfileFragment">
 
-    <!-- Detail Fragment -->
+    <!-- profile Fragment -->
     <fragment
-        android:id="@+id/DetailFragment"
-        android:name="com.sunil.wallyapp.ui.DetailFragment"
-        android:label="image detail"
-        tools:layout="@layout/fragment_detail">
+        android:id="@+id/ProfileFragment"
+        android:name="com.sunil.wallyapp.ui.ProfileFragment"
+        android:label="profile detail"
+        tools:layout="@layout/fragment_profile">
         <argument android:name="content" app:argType="com.sunil.wallyapp.data.model.Photos"/>
     </fragment>
 

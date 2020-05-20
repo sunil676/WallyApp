@@ -13,7 +13,16 @@ import kotlinx.android.synthetic.main.item_photo.view.*
 class PhotoAdapter(var photoList: ArrayList<Photos>) :
     RecyclerView.Adapter<PhotoAdapter.ContentViewHolder>() {
 
-    fun updateContent(content: List<Photos>) {
+    private var mOnClickListener: ListItemClickListener? = null
+
+
+    interface ListItemClickListener {
+        fun onImageDetailItemClick(photos: Photos)
+        fun onImageProfileItemClick(photos: Photos)
+    }
+
+    fun updateContent(content: List<Photos>,  listItemClickListener: ListItemClickListener) {
+        mOnClickListener = listItemClickListener
         photoList.clear()
         photoList.addAll(content)
         notifyDataSetChanged()
@@ -27,12 +36,19 @@ class PhotoAdapter(var photoList: ArrayList<Photos>) :
 
     override fun onBindViewHolder(holder: ContentViewHolder, position: Int) {
         holder.bind(photoList[position], holder.itemView.context)
+        holder.itemView.imageView.setOnClickListener(View.OnClickListener {
+            mOnClickListener?.onImageDetailItemClick(photoList[position])
+        })
+        holder.itemView.imageView2.setOnClickListener(View.OnClickListener {
+            mOnClickListener?.onImageProfileItemClick(photoList[position])
+        })
     }
 
     class ContentViewHolder(view: View) : RecyclerView.ViewHolder(view) {
        // private val title = view.title
         private val imageView = view.imageView
         private  val profileImage = view.imageView2
+
 
         fun bind(photos: Photos, context: Context) {
             //title.text = content.name
