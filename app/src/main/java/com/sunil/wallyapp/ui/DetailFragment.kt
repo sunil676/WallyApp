@@ -82,11 +82,8 @@ class DetailFragment : Fragment() {
     private fun startImageDownload() {
         val intent = Intent(requireContext(), DownloadNotificationService::class.java)
         intent.putExtra("URL", imageUrl)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            requireActivity().startForegroundService(intent)
-        }else{
-            requireActivity().startService(intent)
-        }
+        requireActivity().startService(intent)
+
     }
 
     private fun checkPermission(): Boolean {
@@ -124,7 +121,7 @@ class DetailFragment : Fragment() {
                 val downloadComplete = intent.getBooleanExtra("downloadComplete", false)
                 //Log.d("API123", download.getProgress() + " current progress");
                 if (downloadComplete) {
-                    Toast.makeText(requireContext(), "File download completed", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "File download completed", Toast.LENGTH_SHORT).show()
                     /*val file = File(Environment.getDataDirectory()
                             .absolutePath+ File.separator.toString() +
                             UUID.randomUUID().toString() +".jpg")*/
