@@ -75,6 +75,7 @@ class MainFragment : Fragment(), PhotoAdapter.ListItemClickListener {
         val extras = FragmentNavigatorExtras(
             imageView to imageView.transitionName,
             imageView2 to imageView2.transitionName
+
         )
         navController.navigate(homeFragmentDirections, extras)
     }
