@@ -8,6 +8,7 @@ import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,6 +34,13 @@ class DetailFragment : Fragment() {
     private val args: ProfileFragmentArgs by navArgs()
     private var imageUrl: String? = null
     private val PERMISSION_REQUEST_CODE = 1
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // shared transition
+        sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

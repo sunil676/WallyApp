@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.sunil.wallyapp.R
@@ -19,6 +20,7 @@ import com.sunil.wallyapp.databinding.FragmentMainBinding
 import com.sunil.wallyapp.utils.Status
 import com.sunil.wallyapp.viewmodel.MainViewModel
 import com.sunil.wallyapp.viewmodel.ViewModelFactory
+import kotlinx.android.synthetic.main.item_photo.*
 
 class MainFragment : Fragment(), PhotoAdapter.ListItemClickListener {
 
@@ -57,11 +59,23 @@ class MainFragment : Fragment(), PhotoAdapter.ListItemClickListener {
             adapter = photoAdapter
         }
 
+        // recyclerview item share transition
+        postponeEnterTransition()
+        binding.recyclerView.viewTreeObserver
+            .addOnPreDrawListener {
+                startPostponedEnterTransition()
+                true
+            }
+
     }
     private fun navigateToDetail(photos: Photos) {
         val navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
         val homeFragmentDirections = MainFragmentDirections.actionMainFragmentToDetailFragment(photos)
-        navController.navigate(homeFragmentDirections)
+        // transition from item to detail
+        val extras = FragmentNavigatorExtras(
+            imageView to imageView.transitionName
+        )
+        navController.navigate(homeFragmentDirections, extras)
     }
 
     private fun navigateToProfile(photos: Photos) {
