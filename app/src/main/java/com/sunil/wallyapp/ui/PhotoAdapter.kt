@@ -4,11 +4,17 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.sunil.wallyapp.R
 import com.sunil.wallyapp.data.model.Photos
+import kotlinx.android.synthetic.main.item_photo.*
 import kotlinx.android.synthetic.main.item_photo.view.*
+import kotlinx.android.synthetic.main.item_photo.view.imageView
+import kotlinx.android.synthetic.main.item_photo.view.imageView2
 
 class PhotoAdapter(var photoList: ArrayList<Photos>) :
     RecyclerView.Adapter<PhotoAdapter.ContentViewHolder>() {
